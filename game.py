@@ -6,6 +6,7 @@ def main():
     current_player = 'X'
     running = True
     game.display()
+
     while running:
         print(f'Ход делают {current_player}')
         while True:
@@ -36,8 +37,17 @@ def main():
                 print(f'Возникла ошибка: {e}')
             else:
                 break
+
         game.make_move(row, column, current_player)
         game.display()
+
+        if game.find_winner(current_player):
+            print(f'Победил {current_player}')
+            running = False
+        elif game.is_board_full():
+            print('Ничья')
+            running = False
+
         current_player = 'O' if current_player == 'X' else 'X'
 
 
