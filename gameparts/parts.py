@@ -9,14 +9,7 @@ class Board:
             for _ in range(self.field_size)]
 
     def make_move(self, row, col, player):
-        self.board[row - 1][col - 1] = player
-
-    def display(self):
-        print('-' * 5)
-        for row in self.board:
-            print('|'.join(row))
-            print('-' * 5)
-        print('\n')
+        self.board[row][col] = player
 
     def is_board_full(self):
         for x in range(self.field_size):
